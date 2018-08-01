@@ -1,0 +1,20 @@
+#action__form{
+    font-size: $m-size;
+    font-family: 'Poppins';
+    input{
+        font-size: $m-size;
+        font-family: 'Poppins';
+        border-radius: 5px;
+        border: 1px solid #EBEEF0;
+        margin-right: $s-size;
+    }
+    button{
+        font-size: $m-size;
+        font-family: 'Poppins'; 
+        color: #007AFF;
+        background: #E2EFFF;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+}
