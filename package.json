@@ -3,12 +3,17 @@
   "version": "1.0.0",
   "description": "Front end del demo de la parte de front-end para la empresa Alfred",
   "main": "app.js",
+  "engines": {
+    "node": "10.7.0",
+    "npm": "6.3.0"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:dev": "webpack",
     "build:prod": "webpack -p --env production",
     "dev-server": "webpack-dev-server",
-    "serv": "live-server public/"
+    "serv": "live-server public/",
+    "start":"node server/server.js"
   },
   "author": "Carlos Morán",
   "license": "GPL-3.0-or-later",
