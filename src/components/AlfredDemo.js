@@ -12,21 +12,11 @@ export default class AlfreDemo extends React.Component{
     };
     componentDidMount(){
         // fetching notifications
-        $.ajax({
-            url: 'https://alfred-demo-api.herokuapp.com/api/notifications/',
-            method: 'GET',
-            dataType: 'JSON',
-            success: (data) => {
-                console.log(data);
-            }
+        $.get('https://alfred-demo-api.herokuapp.com/api/notifications/', (data) => {
+            this.setState(() => ({
+                notifications: data
+            }));
         });
-        // if(json){
-        //     if(json.length > 0){
-        //         this.setState(() => ({
-        //             notifications: json
-        //         }));
-        //     }
-        // }
     };
     render(){
         return(

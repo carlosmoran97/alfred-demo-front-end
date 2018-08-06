@@ -32,7 +32,7 @@ export default class Notification extends React.Component{
     generateGenderAlert(gender){
         let genderAlert = undefined;
         switch(gender){
-            case "male":
+            case "man":
                 genderAlert = (
                     <div 
                         className="alert alert-primary notification__gender"
@@ -43,7 +43,7 @@ export default class Notification extends React.Component{
                     </div>
                 );
             break;
-            case "female":
+            case "woman":
                 genderAlert = (
                     <div
                         className="alert alert-danger notification__gender"
@@ -121,16 +121,16 @@ export default class Notification extends React.Component{
                     ></img>
                 </td>
                 <td className="clientName">
-                    {this.state.notification.client.name}
+                    {this.state.notification.client.fullName}
                 </td>
                 <td className="notifDate">
                     {
-                        `${this.timeSince(new Date(this.state.notification.date))} ago`
+                        `${this.timeSince(new Date(this.state.notification.createdAt))} ago`
                     }
                 </td>
                 <td className="clientGender">
                     {
-                        this.generateGenderAlert(this.state.notification.client.gender)
+                        this.generateGenderAlert(this.state.notification.senderClient.gender)
                     }
                 </td>
                 <td>
