@@ -13,7 +13,7 @@
     "build:prod": "webpack -p --env production",
     "dev-server": "webpack-dev-server",
     "serv": "live-server public/",
-    "start":"node server/server.js"
+    "start": "node server/server.js"
   },
   "author": "Carlos Morán",
   "license": "GPL-3.0-or-later",
@@ -51,6 +51,6 @@
     "file-loader": "^1.1.11",
     "live-server": "^1.2.0",
     "url-loader": "^1.0.1",
-    "webpack-cli": "^2.1.5"
+    "webpack-cli": "^1.5.3"
   }
 }
