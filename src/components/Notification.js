@@ -121,7 +121,7 @@ export default class Notification extends React.Component{
                     ></img>
                 </td>
                 <td className="clientName">
-                    {this.state.notification.client.fullName}
+                    {this.state.notification.senderClient.fullName}
                 </td>
                 <td className="notifDate">
                     {
