@@ -4,6 +4,7 @@ import typeMessage from '../images/typeMessage.png';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
+import $ from 'jquery';
 library.add(faCheck);
 
 export default class Notification extends React.Component{
@@ -11,11 +12,22 @@ export default class Notification extends React.Component{
         notification: this.props.notification
     };
     handleChangeState = () => {
-        console.log('cambiando estado');
-        this.state.notification.status ="hecho";
-        this.setState(() =>({
-            notification: this.state.notification
-        }));
+        $.ajax({
+            url: `https://alfred-demo-api.herokuapp.com/api/notifications/${this.state.notification.id}/`,
+            type: 'PUT',
+            data: {
+                status: "hecho"
+            },
+            dataType: 'JSON',
+            success: (data) => {
+                this.setState((prevState, props) => {
+                    prevState.notification.status = data[0].status;
+                    return {
+                        notification: prevState.notification
+                    };
+                });
+            }
+        });
     }
     typeIcon(type){
         let typeicon = undefined;
@@ -116,7 +128,7 @@ export default class Notification extends React.Component{
             <tr>
                 <td>
                     <img
-                        src={this.typeIcon(this.state.notification.type)}
+                        src={this.typeIcon(this.state.notification.notificationType)}
                         style={{"width":"40px","height":"40px","borderRadius":"50%"}}
                     ></img>
                 </td>
